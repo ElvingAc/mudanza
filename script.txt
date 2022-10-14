@@ -1,0 +1,69 @@
+		create table Conductor(
+		ci varchar(10) not null,
+		nombre varchar(20) not null,
+		direccion varchar(20) not null,
+		telefono varchar(10) not null,
+		 PRIMARY KEY (ci)
+		);
+
+
+		create table Cliente(
+		ci varchar(10) not null,
+		nombre varchar(20) not null,
+		direccion varchar(20) not null,
+		telefono varchar(10) not null,
+		correo varchar(20)not null,
+		PRIMARY KEY (ci)
+		);
+
+
+
+		create table Vehiculo(
+		nro_placa varchar(10) not null,
+		modelo varchar(20) not null,
+		marca varchar(20) not null,
+		color varchar(10) not null,
+		cantAyudantes varchar(10) not null,
+		tipoVehiculo varchar(10) not null,
+		ciC varchar(10) not null,
+		PRIMARY KEY (nro_placa),
+		foreign key(ciC) references Conductor(ci)
+		);
+
+		create table tipoP(
+		id_tipoP int not null,
+		descripcion varchar(20) not null,
+		PRIMARY KEY (id_tipoP)
+		);
+
+		create table Producto(
+		id_producto int not null,
+		descripcion varchar(20) not null,
+		id_tipoP int not null,
+		PRIMARY KEY (id_producto),
+		foreign key(id_tipoP) references tipoP(id_tipoP)
+		);
+
+		create table mudanza(
+		id_mudanza int not null,
+		fecha date not null,
+		monto float not null,
+		nro_placa varchar(10) not null,
+		ci_cliente varchar(10) not null,
+		id_producto int not null,
+		PRIMARY KEY (id_mudanza),
+		foreign key(nro_placa) references Vehiculo(nro_placa),
+		foreign key(ci_cliente) references Cliente(ci),
+		foreign key(id_producto) references Producto(id_producto)
+		);
+
+		create table DetalleMudanza(
+		id_mudanza int not null,
+		id_producto int not null,
+		cantidad varchar(10) not null,
+		primary key(id_mudanza,id_producto),
+		foreign key(id_mudanza) references mudanza(id_mudanza),
+		foreign key(id_producto) references Producto(id_producto)
+		);
+---------------------------------------------------------------------------
+
