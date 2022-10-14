@@ -67,6 +67,43 @@ public class Dproducto {
 
 	}
         
+            public void modificar(){
+            conexion = new conexion();
+            con= conexion.getConnection();
+             PreparedStatement ps= null;
+             String sql= "UPDATE producto SET descripcion=?, id_tipoP WHERE id_producto="+this.idproducto;
+             try {
+                ps= con.prepareStatement(sql);
+                
+                ps.setString(1, this.descripcion);
+                ps.setInt(2, this.id_tipoP);
+                ps.execute();
+                ps.close();
+                 System.out.println("modificador exitosamente");
+            } catch (Exception e) {
+                 System.out.println("error al modificar.."+e.getMessage());
+            }
+
+	}
+            
+            
+            public void eliminar(int idproducto){
+            conexion = new conexion();
+            con= conexion.getConnection();
+            PreparedStatement ps=null;
+            String sql="DELETE FROM producto WHERE id_producto="+this.idproducto;
+            try {
+                ps=con.prepareStatement(sql);
+                
+                ps.execute();
+                ps.close();
+                System.out.println("producto Elminado exitosamente...");
+            } catch (Exception e) {
+                System.out.println("Error Elimiinar producto..." + e);
+            }
+
+	}
+        
         public ArrayList listar(){
             conexion = new conexion();
             con= conexion.getConnection();
@@ -92,7 +129,7 @@ public class Dproducto {
             }
             return pro;
 	}
-        public void modificar(){}
+        
         public void eliminar(){}
     
 }

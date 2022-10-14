@@ -32,13 +32,24 @@ public class Nproducto {
 
 	}
     
+        public void modificar(int id_producto, String descripcion, int idtipop ){
+            this.dproducto.setIdproducto(id_producto);
+            this.dproducto.setDescripcion(descripcion);
+            this.dproducto.setId_tipoP(idtipop);
+            this.dproducto.modificar();
+	}
+    
+           public void eliminar(int idproducto){
+            this.dproducto.setIdproducto(idproducto);
+            this.dproducto.eliminar(idproducto);
+
+	}
     
     public ArrayList listar(){
             return this.dproducto.listar();
     }
    
-    public void modificar(int idproducto, String descripcion, int idtipop){}
     
-    public void eliminar(int id){}
+  
     
 }
