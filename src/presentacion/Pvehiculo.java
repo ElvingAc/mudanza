@@ -2,6 +2,7 @@
 package presentacion;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import negocio.Nconductor;
 import negocio.Nvehiculo;
@@ -30,6 +31,7 @@ public class Pvehiculo extends javax.swing.JFrame {
                 nvehiculo= new Nvehiculo();
                  nconductor = new Nconductor();
                  listarconductor();
+                 listar();
     }
 
     /**
@@ -106,7 +108,7 @@ public class Pvehiculo extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jButton1.setText("Agregar");
+        jButton1.setText("Registrar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -193,13 +195,6 @@ public class Pvehiculo extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-            agregar();
-            listar();
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
 
         String opt =(String)jComboBox1.getSelectedItem();
@@ -211,6 +206,13 @@ public class Pvehiculo extends javax.swing.JFrame {
         System.out.println("idconductor: "+this.ciC);
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        agregar();
+        listar();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -257,7 +259,8 @@ public class Pvehiculo extends javax.swing.JFrame {
         this.cantAyudantes= jTextField5.getText();
         this.tipoVehiculo= jTextField6.getText();
         this.nvehiculo.agregar(nro_placa, modelo,marca,color,cantAyudantes,tipoVehiculo,ciC);
-        
+        JOptionPane.showMessageDialog(null, "Exitosamente Vehiculo registrado");
+        JOptionPane.showMessageDialog(null, "Listando vehiculos");
     }
     
         private void listar(){

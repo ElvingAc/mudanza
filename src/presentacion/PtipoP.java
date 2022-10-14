@@ -2,6 +2,7 @@
 package presentacion;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import negocio.NtipoP;
 
@@ -45,7 +46,7 @@ public class PtipoP extends javax.swing.JFrame {
 
         jLabel2.setText("descripcion");
 
-        jButton1.setText("insertar");
+        jButton1.setText("Registrar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -174,6 +175,8 @@ public class PtipoP extends javax.swing.JFrame {
             this.descripcion = jTextField2.getText();
             this.id = Integer.valueOf(jTextField1.getText());
             ntipoP.agregar(this.id,this.descripcion);
+            JOptionPane.showMessageDialog(null, "Exitosamente tipoP registrado");
+            JOptionPane.showMessageDialog(null, "Listando tipoP");
         } catch (Exception e) {
             System.out.println("Presentacion insertar error.. "+e);
         }

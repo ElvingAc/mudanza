@@ -2,6 +2,7 @@
 package presentacion;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import negocio.Nconductor;
 
@@ -174,6 +175,8 @@ public class Pconductor extends javax.swing.JFrame {
             this.telefono= jTextField4.getText();
             
             nconductor.agregar(ci,nombre,direccion,telefono);
+            JOptionPane.showMessageDialog(null, "Exitosamente conductor registrado");
+            JOptionPane.showMessageDialog(null, "Listando conductores");
         } catch (Exception e) {
             System.out.println("Presentacion insertar error.. " + e);
         }

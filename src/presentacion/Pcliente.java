@@ -3,6 +3,7 @@ package presentacion;
 
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import negocio.Ncliente;
 
@@ -235,8 +236,11 @@ public class Pcliente extends javax.swing.JFrame {
             this.telefono= jTextField4.getText();
             this.correo= jTextField5.getText();
             ncliente.agregar(ci,nombre,direccion,telefono,correo);
+            JOptionPane.showMessageDialog(null, "Exitosamente Cliente registrado");
+             JOptionPane.showMessageDialog(null, "Listando Clientes");
         } catch (Exception e) {
             System.out.println("Presentacion insertar error.. " + e);
+            
         }
     }
      
@@ -256,7 +260,7 @@ public class Pcliente extends javax.swing.JFrame {
         private void eliminar(){
         this.ci=jTextField1.getText();
         this.ncliente.eliminar(ci);
-        
+        JOptionPane.showMessageDialog(null, "Exitosamente Cliente eliminado");
     }
      
     public static void main(String args[]) {
