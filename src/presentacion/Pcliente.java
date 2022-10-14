@@ -25,7 +25,7 @@ public class Pcliente extends javax.swing.JFrame {
     
     
     public Pcliente() {
-        this.setTitle("Gestinar Cliente");
+        this.setTitle("Registrar Cliente");
         initComponents();
         ncliente= new Ncliente();
         listar();
